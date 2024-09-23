@@ -1,4 +1,6 @@
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/ui/pages/choose_seat_page.dart';
+import 'package:airplane/ui/widgets/custom_button.dart';
 import 'package:airplane/ui/widgets/interest_item.dart';
 import 'package:airplane/ui/widgets/photos_item.dart';
 import 'package:flutter/material.dart';
@@ -202,6 +204,7 @@ class DetailPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 10),
                   const Row(
                     children: [
                       InterestItem(
@@ -211,6 +214,52 @@ class DetailPage extends StatelessWidget {
                         text: 'Central Mall',
                       ),
                     ],
+                  ),
+                ],
+              ),
+            ),
+
+            // Note: Price
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(vertical: 30),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'IDR 2.500.000',
+                          style: blackTextStyle.copyWith(
+                            fontSize: 18,
+                            fontWeight: medium,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'per orang',
+                          style: greyTextStyle.copyWith(
+                            fontWeight: light,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Note: Book Button
+                  CustomButton(
+                    title: 'Book Now',
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChooseSeatPage(),
+                        ),
+                      );
+                    },
+                    width: 170,
                   ),
                 ],
               ),
